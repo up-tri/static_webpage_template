@@ -4,6 +4,9 @@
   "compilerOptions": {
     "incremental": true,
     "declarationMap": false,
-    "sourceMap": false
+    "sourceMap": false,
+    "composite": false,
+    "declarationDir": null,
+    "declaration": false
   }
 }
