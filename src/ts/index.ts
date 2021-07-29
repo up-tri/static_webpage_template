@@ -1,7 +1,4 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-
-import '../scss/app.scss';
-
 (() => {
   console.log('loaded js');
 })();
