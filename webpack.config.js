@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const ENV = process.env.NODE_ENV || "development";
+
 // plugins
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -19,7 +21,7 @@ function recursiveFindHTML(dirname) {
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  mode: process.env.NODE_ENV || "development",
+  mode: ENV,
   entry: {
     app: [
       path.join(__dirname, "src/ts/index.ts"),
@@ -48,7 +50,7 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              configFile: process.env.NODE_ENV === "development" ? "tsconfig.json" : "tsconfig.prod.json",
+              configFile: ENV === "production" ? "tsconfig.prod.json" : "tsconfig.json",
             }
           }
         ]
@@ -57,7 +59,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+          ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
           {
             loader: "css-loader",
             options: {
