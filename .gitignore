@@ -1,0 +1,8 @@
+## nodejs
+/node_modules
+/yarn.lock
+/package-lock.json
+
+## distributes
+/dist
+*.tsbuildinfo
